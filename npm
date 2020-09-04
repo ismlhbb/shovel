@@ -1,0 +1,64 @@
+
+> @ development /var/www/shovel
+> cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js
+
+ ERROR  Failed to compile with 2 errors6:04:26 PM
+
+ error  in ./resources/sass/app.scss
+
+Module build failed (from ./node_modules/css-loader/index.js):
+ModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):
+ValidationError: Invalid options object. Sass Loader has been initialized using an options object that does not match the API schema.
+ - options has an unknown property 'outputStyle'. These properties are valid:
+   object { implementation?, sassOptions?, prependData?, sourceMap?, webpackImporter? }
+    at validate (/var/www/shovel/node_modules/schema-utils/dist/validate.js:98:11)
+    at Object.loader (/var/www/shovel/node_modules/sass-loader/dist/index.js:36:28)
+    at /var/www/shovel/node_modules/webpack/lib/NormalModule.js:316:20
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at runSyncOrAsync (/var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:143:3)
+    at iterateNormalLoaders (/var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:232:2)
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:205:4
+    at /var/www/shovel/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+
+ error  in ./resources/sass/app.scss
+
+Module build failed (from ./node_modules/sass-loader/dist/cjs.js):
+ValidationError: Invalid options object. Sass Loader has been initialized using an options object that does not match the API schema.
+ - options has an unknown property 'outputStyle'. These properties are valid:
+   object { implementation?, sassOptions?, prependData?, sourceMap?, webpackImporter? }
+    at validate (/var/www/shovel/node_modules/schema-utils/dist/validate.js:98:11)
+    at Object.loader (/var/www/shovel/node_modules/sass-loader/dist/index.js:36:28)
+
+ @ ./resources/sass/app.scss 2:14-253
+
+     Asset     Size   Chunks             Chunk Names
+/js/app.js  1.4 MiB  /js/app  [emitted]  /js/app
+
+ERROR in ./resources/sass/app.scss
+Module build failed (from ./node_modules/css-loader/index.js):
+ModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):
+ValidationError: Invalid options object. Sass Loader has been initialized using an options object that does not match the API schema.
+ - options has an unknown property 'outputStyle'. These properties are valid:
+   object { implementation?, sassOptions?, prependData?, sourceMap?, webpackImporter? }
+    at validate (/var/www/shovel/node_modules/schema-utils/dist/validate.js:98:11)
+    at Object.loader (/var/www/shovel/node_modules/sass-loader/dist/index.js:36:28)
+    at /var/www/shovel/node_modules/webpack/lib/NormalModule.js:316:20
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:367:11
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:233:18
+    at runSyncOrAsync (/var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:143:3)
+    at iterateNormalLoaders (/var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:232:2)
+    at /var/www/shovel/node_modules/loader-runner/lib/LoaderRunner.js:205:4
+    at /var/www/shovel/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15
+    at processTicksAndRejections (internal/process/task_queues.js:79:11)
+ @ ./resources/sass/app.scss
+
+ERROR in ./resources/sass/app.scss (./node_modules/css-loader??ref--5-2!./node_modules/postcss-loader/src??postcss0!./node_modules/resolve-url-loader??ref--5-4!./node_modules/sass-loader/dist/cjs.js??ref--5-5!./resources/sass/app.scss)
+Module build failed (from ./node_modules/sass-loader/dist/cjs.js):
+ValidationError: Invalid options object. Sass Loader has been initialized using an options object that does not match the API schema.
+ - options has an unknown property 'outputStyle'. These properties are valid:
+   object { implementation?, sassOptions?, prependData?, sourceMap?, webpackImporter? }
+    at validate (/var/www/shovel/node_modules/schema-utils/dist/validate.js:98:11)
+    at Object.loader (/var/www/shovel/node_modules/sass-loader/dist/index.js:36:28)
+ @ ./resources/sass/app.scss 2:14-253

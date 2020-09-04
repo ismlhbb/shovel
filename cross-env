@@ -1,0 +1,10 @@
+Hash: 5f5494254276e2b58ef4
+Version: webpack 4.44.1
+Time: 206ms
+Built at: 09/04/2020 6:04:36 PM
+
+WARNING in configuration
+The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.
+You can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/configuration/mode/
+
+ERROR in Entry module not found: Error: Can't resolve './src' in '/var/www/shovel'
