@@ -164,28 +164,31 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
-                        <li class=active>
+                        <li class="{{ request()->is('home') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">
                                 <i class="fas fa-fire"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="menu-header">Master</li>
-                        <li class=active>
-                            <a class="nav-link" href="{{ route('users.index') }}">
+
+                        {{-- Master Data --}}
+                        <li class="menu-header">Master Data</li>
+                        <li class="dropdown {{ request()->routeIs('users*') ? 'active' : '' }}">
+                            <a class="nav-link has-dropdown" href="#">
                                 <i class="far fa-user"></i>
-                                <span>Manajemen Users</span>
+                                <span>Management Users</span>
                             </a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ request()->routeIs('users.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('users.index') }}">List Users</a>
+                                </li>
+                                <li class="{{ request()->routeIs('users.create') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('users.create') }}">Create New User</a>
+                                </li>
+                            </ul>
                         </li>
 
-                        {{-- <li class="dropdown">
-                            <a href="#" class="nav-link has-dropdown"><i
-                                    class="fas fa-fire"></i><span>Dashboard</span></a>
-                            <ul class="dropdown-menu">
-                                <li><a class="nav-link" href="index-0.html">General Dashboard</a></li>
-                                <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
-                            </ul>
-                        </li> --}}
+
                 </aside>
             </div>
 
