@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +16,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
+// Menghapus fitur registrasi
+Route::match(["GET", "POST"], "/register", function () {
+    return redirect("/login");
+})->name("register");
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Manajemen User
+Route::resource("users", "UserController");

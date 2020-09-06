@@ -1,0 +1,23 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+.navbar-bg-custom{
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 11%;
+    background-color: #6777ef;
+    z-index: -1; }
+
+    body.layout-3 .main-content-custom {
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 110px;
+    }
