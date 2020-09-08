@@ -27,5 +27,14 @@ Route::match(["GET", "POST"], "/register", function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Manajemen User
+// Management User
 Route::resource("users", "UserController");
+
+// Melihat trash category
+Route::get('/categories/trash', 'CategoryController@trash')->name('categories.trash');
+// Mengatur restore trashed category
+Route::get('/categories/{id}/restore', 'CategoryController@restore')->name('categories.restore');
+// Mengatur delete permanent category
+Route::delete('/categories/{category}/delete-permanent', 'CategoryController@deletePermanent')->name('categories.delete-permanent');
+// Management Category
+Route::resource('categories', 'CategoryController');

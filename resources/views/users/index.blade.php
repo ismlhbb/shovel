@@ -5,27 +5,7 @@
 @section("content")
 @section('pageTitle') List Users @endsection
 
-{{-- <div class="row">
-
-    <div class="col-md-4">
-        <form action="{{route('users.index')}}">
-<div class="input-group mb-3">
-    <input type="text" class="form-control col-md-10" placeholder="Filter by email" value="{{Request::get('keyword')}}"
-        name="keyword">
-    <div class="input-group-append">
-        <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-    </div>
-</div>
-</form>
-</div> --}}
-
-{{-- Filter by status --}}
-
-
-
-
-</div>
-
+{{-- Filter section --}}
 <div class="row mb-4">
     <div class="col-12">
         <div class="card mb-0">
@@ -33,7 +13,7 @@
                 <ul class="nav nav-pills">
                     {{-- Create new user button --}}
                     <li class="nav-item">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary mt-1 text-right">
+                        <a href="{{ route('users.create') }}" class="btn btn-primary mt-1">
                             Create New user
                         </a>
                     </li>
@@ -93,9 +73,10 @@
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
+                        @php $no = $users->firstItem(); @endphp
                         @foreach($users as $user)
                         <tr>
-                            <td scope="row">{{ $loop->iteration}}</td>
+                            <td scope="row">{{ $no }}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->username}}</td>
                             <td>{{$user->email}}</td>
@@ -129,6 +110,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @php $no ++ @endphp
                         @endforeach
                     </table>
                 </div>

@@ -173,10 +173,11 @@
 
                         {{-- Master Data --}}
                         <li class="menu-header">Master Data</li>
+                        {{-- Management Users --}}
                         <li class="dropdown {{ request()->routeIs('users*') ? 'active' : '' }}">
                             <a class="nav-link has-dropdown" href="#">
                                 <i class="far fa-user"></i>
-                                <span>Management Users</span>
+                                <span>Manage Users</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="{{ request()->routeIs('users.index') ? 'active' : '' }}">
@@ -184,6 +185,31 @@
                                 </li>
                                 <li class="{{ request()->routeIs('users.create') ? 'active' : '' }}">
                                     <a class="nav-link" href="{{ route('users.create') }}">Create New User</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        {{-- Management Categories --}}
+                        <li class="dropdown {{ request()->routeIs('categories*') ? 'active' : '' }}">
+                            <a class="nav-link has-dropdown" href="#">
+                                <i class="fas fa-tags"></i>
+                                <span>Manage Categories</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ request()->routeIs('categories.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('categories.index') }}">
+                                        List Categories
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('categories.create') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('categories.create') }}">
+                                        Create New Category
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('categories.trash') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('categories.create') }}">
+                                        All Trashed Categories
+                                    </a>
                                 </li>
                             </ul>
                         </li>

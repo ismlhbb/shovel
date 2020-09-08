@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = \App\User::paginate(10);
+        $users = \App\User::paginate(4);
 
         //tangkap terlebih dahulu request variabel bernama 'keyword` dan 'status'
         $filterKeyword = $request->get('keyword');
@@ -26,18 +26,18 @@ class UserController extends Controller
             if ($status) {
                 $users = \App\User::where('email', 'LIKE', "%$filterKeyword%")
                     ->where('status', $status)
-                    ->paginate(10);
+                    ->paginate(4);
             } else {
                 $users = \App\User::where('email', 'LIKE', "%$filterKeyword%")
-                    ->paginate(10);
+                    ->paginate(4);
             }
         }
 
         //cek jika $status memiliki nilai maka kita gunakan untuk query model User berdasarkan status, jika tidak maka query model User tanpa status
         if ($status) {
-            $users = \App\User::where('status', $status)->paginate(10);
+            $users = \App\User::where('status', $status)->paginate(4);
         } else {
-            $users = \App\User::paginate(10);
+            $users = \App\User::paginate(4);
         }
 
 
