@@ -38,7 +38,11 @@
                                     <i class="fas fa-book"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="title">
+                            <input type="text" class="form-control {{ $errors->first('title') ? "is-invalid" : "" }}"
+                                name="title" value="{{ old('title') }}">
+                            <div class="invalid-feedback">
+                                {{$errors->first('title')}}
+                            </div>
                         </div>
                     </div>
 
@@ -46,16 +50,25 @@
                     <div class="form-group">
                         <label>Book Cover</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="cover">
+                            <input type="file"
+                                class="custom-file-input {{ $errors->first('cover') ? "is-invalid" : "" }}"
+                                name="cover">
                             <label class="custom-file-label" for="image">Choose file</label>
+                            <div class="invalid-feedback">
+                                {{$errors->first('cover')}}
+                            </div>
                         </div>
                     </div>
 
                     {{-- description --}}
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" name="description" id="description"
-                            placeholder="Give a description about this book"></textarea>
+                        <textarea class="form-control {{ $errors->first('description') ? "is-invalid" : "" }}"
+                            name="description" id="description"
+                            placeholder="Give a description about this book">{{ old('description') }}</textarea>
+                        <div class="invalid-feedback">
+                            {{$errors->first('description')}}
+                        </div>
                     </div>
 
                     {{-- category --}}
@@ -69,7 +82,11 @@
                     {{-- Stock --}}
                     <div class="form-group">
                         <label>Stock</label>
-                        <input type="number" class="form-control" name="stock" id="stock" min=0 value=0>
+                        <input type="number" class="form-control {{ $errors->first('stock') ? "is-invalid" : "" }}"
+                            name="stock" id="stock" min=0 value=0 value="{{ old('stock') }}">
+                        <div class="invalid-feedback">
+                            {{ $errors->first('stock') }}
+                        </div>
                     </div>
 
                     {{-- author --}}
@@ -81,14 +98,22 @@
                                     <i class="fas fa-user"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" id="author" name="author">
+                            <input type="text" class="form-control {{ $errors->first('author') ? "is-invalid" : "" }}"
+                                id="author" name="author" value="{{ old('author') }}">
+                            <div class="invalid-feedback">
+                                {{ $errors->first('author') }}
+                            </div>
                         </div>
                     </div>
 
                     {{-- publisher --}}
                     <div class="form-group">
                         <label for="publisher">Book Publisher</label>
-                        <input type="text" class="form-control" id="publisher" name="publisher">
+                        <input type="text" class="form-control {{ $errors->first('publisher') ? "is-invalid" : "" }}"
+                            id="publisher" name="publisher" value="{{ old('publisher') }}">
+                        <div class="invalid-feedback">
+                            {{ $errors->first('publisher') }}
+                        </div>
                     </div>
 
                     {{-- price --}}
@@ -98,9 +123,13 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text">IDR</div>
                             </div>
-                            <input type="text" class="form-control" name="price" id="price">
+                            <input type="text" class="form-control {{ $errors->first('price') ? "is-invalid" : "" }}"
+                                name="price" id="price" value="{{ old('price') }}">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">00</div>
+                            </div>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('price') }}
                             </div>
                         </div>
                     </div>

@@ -33,7 +33,11 @@
                                     <i class="fas fa-tags"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="name">
+                            <input type="text" class="form-control {{ $errors->first('name') ? "is-invalid" : "" }}"
+                                name="name" value="{{ old('name') }}">
+                            <div class="invalid-feedback">
+                                {{$errors->first('name')}}
+                            </div>
                         </div>
                     </div>
 
@@ -41,8 +45,13 @@
                     <div class="form-group">
                         <label>Category Image</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="image">
+                            <input type="file"
+                                class="custom-file-input {{ $errors->first('image') ? "is-invalid" : "" }}"
+                                name="image">
                             <label class="custom-file-label" for="image">Choose file</label>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('image') }}
+                            </div>
                         </div>
                     </div>
 

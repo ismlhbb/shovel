@@ -170,6 +170,19 @@
                                 </li>
                             </ul>
                         </li>
+
+                        {{-- Management Orders --}}
+                        <li class="dropdown {{ request()->routeIs('orders*') ? 'active' : '' }}">
+                            <a class="nav-link has-dropdown" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Manage Orders</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ request()->routeIs('orders.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('orders.index') }}">List Orders</a>
+                                </li>
+                            </ul>
+                        </li>
                 </aside>
             </div>
 

@@ -34,7 +34,10 @@
                                     value="INACTIVE" {{Request::get('status') == 'INACTIVE' ? 'checked' : ''}}>
                                 <label class="custom-control-label" for="inactive">Inactive</label>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                            <button type="submit" class="btn btn-primary mr-2"><i class="fas fa-search"></i></button>
+                            <a href="{{ route('users.index') }}" type="submit" class="btn btn-info">
+                                RESET
+                            </a>
                         </form>
                     </li>
                 </ul>

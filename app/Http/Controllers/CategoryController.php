@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -53,6 +55,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        //validasi
+        Validator::make($request->all(), [
+            "name" => "required|min:3|max:20",
+            "image" => "required"
+        ])->validate();
+
         //menangkap request dengan nama 'name' ke dalam variabel $name 
         $name = $request->get('name');
 
@@ -112,12 +120,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //cari Category yang sedang diedit
+        $category = \App\Category::findOrFail($id);
+
+        //validasi
+        Validator::make($request->all(), [
+            "name" => "required|min:3|max:20",
+            "image" => "required",
+            "slug" => [
+                "required",
+                Rule::unique("categories")->ignore($category->slug, "slug")
+            ]
+        ])->validate();
+
         //tangkap masing-masing field text
         $name = $request->get('name');
         $slug = $request->get('slug');
-
-        //cari Category yang sedang diedit
-        $category = \App\Category::findOrFail($id);
 
         //berikan field-field yang diedit dengan nilai dari request yang kita tangkap
         $category->name = $name;

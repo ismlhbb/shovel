@@ -34,7 +34,11 @@
                                     <i class="far fa-user"></i>
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="name" id="name" value="{{$user->name}}">
+                            <input type="text" class="form-control {{ $errors->first('name') ? "is-invalid" : "" }}"
+                                name="name" id="name" value="{{ old('name') ? old('name') : $user->name }}">
+                            <div class="invalid-feedback">
+                                {{ $errors->first('name') }}
+                            </div>
                         </div>
                     </div>
 
@@ -70,19 +74,25 @@
                         <label class="d-block" for="roles[]">Roles</label>
                         <div class="custom-control custom-checkbox custom-control-inline">
                             <input type="checkbox" {{ in_array("ADMIN", json_decode($user->roles)) ? "checked" : "" }}
-                                class="custom-control-input" name="roles[]" id="ADMIN" value="ADMIN">
+                                class="custom-control-input {{ $errors->first('roles') ? "is-invalid" : "" }}"
+                                name="roles[]" id="ADMIN" value="ADMIN">
                             <label class="custom-control-label" for="ADMIN">Administrator</label>
                         </div>
                         <div class="custom-control custom-checkbox custom-control-inline">
                             <input type="checkbox" {{ in_array("STAFF", json_decode($user->roles)) ? "checked" : "" }}
-                                class="custom-control-input" name="roles[]" id="STAFF" value="STAFF">
+                                class="custom-control-input {{ $errors->first('roles') ? "is-invalid" : "" }}"
+                                name="roles[]" id="STAFF" value="STAFF">
                             <label class="custom-control-label" for="STAFF">Staff</label>
                         </div>
                         <div class="custom-control custom-checkbox custom-control-inline">
                             <input type="checkbox"
                                 {{ in_array("CUSTOMER", json_decode($user->roles)) ? "checked" : "" }}
-                                class="custom-control-input" name="roles[]" id="CUSTOMER" value="CUSTOMER">
+                                class="custom-control-input {{ $errors->first('roles') ? "is-invalid" : "" }}"
+                                name="roles[]" id="CUSTOMER" value="CUSTOMER">
                             <label class="custom-control-label" for="CUSTOMER">Customer</label>
+                        </div>
+                        <div class="input-group invalid-feedback">
+                            {{ $errors->first('roles') }}
                         </div>
                     </div>
 
@@ -95,14 +105,24 @@
                                     <i class="fas fa-phone"></i>
                                 </div>
                             </div>
-                            <input type="tel" name="phone" class="form-control" value="{{$user->phone}}">
+                            <input type="tel" name="phone"
+                                class="form-control {{ $errors->first('phone') ? "is-invalid" : "" }}"
+                                value="{{ old('phone') ? old('phone') : $user->phone }}">
+                            <div class="invalid-feedback">
+                                {{$errors->first('phone')}}
+                            </div>
                         </div>
                     </div>
 
                     {{-- address --}}
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <textarea class="form-control" name="address" id="address">{{$user->address}}</textarea>
+                        <textarea class="form-control {{ $errors->first('address') ? "is-invalid" : "" }}"
+                            name="address"
+                            id="address">{{ old('address') ? old('address') : $user->address }}</textarea>
+                        <div class="invalid-feedback">
+                            {{$errors->first('address')}}
+                        </div>
                     </div>
 
                     {{-- avatar --}}
