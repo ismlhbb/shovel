@@ -8,10 +8,21 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Symfony\Component\VarDumper\VarDumper;
+use Illuminate\Support\Facades\Gate;
+
+
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        // OTORISASI GATE
+        $this->middleware(function ($request, $next) {
+            if (Gate::allows('manage-books')) return $next($request);
+            abort(403, 'You do not have access to this page.');
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -8,7 +8,8 @@
         <div class="page-inner">
             <h1>403</h1>
             <div class="page-description">
-                You do not have access to this page.
+
+                {{$exception->getMessage()}}
             </div>
 
             <div class="mt-5 mb-5">

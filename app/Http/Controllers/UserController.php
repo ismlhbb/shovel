@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+        // OTORISASI GATE
+        $this->middleware(function ($request, $next) {
+            if (Gate::allows('manage-categories')) return $next($request);
+            abort(403, 'You do not have access to this page.');
+        });
+    }
     /**
      * Display a listing of the resource.
      *

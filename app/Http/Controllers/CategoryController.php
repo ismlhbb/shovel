@@ -6,11 +6,21 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        // OTORISASI GATE
+        $this->middleware(function ($request, $next) {
+            if (Gate::allows('manage-orders')) return $next($request);
+            abort(403, 'You do not have access to this page.');
+        });
+    }
+
     /**
      * Display a listing of the resource.
      *
