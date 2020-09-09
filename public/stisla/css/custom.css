@@ -6,7 +6,7 @@
  */
 
 /*# sourceMappingURL=custom.css.map */
-.navbar-bg-custom{
+/* .navbar-bg-custom{
     content: ' ';
     position: absolute;
     top: 0;
@@ -16,8 +16,9 @@
     background-color: #6777ef;
     z-index: -1; }
 
-    body.layout-3 .main-content-custom {
-        padding-left: 0;
-        padding-right: 0;
-        padding-top: 110px;
-    }
+body.layout-3 .main-content-custom {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 110px;
+} */
+
