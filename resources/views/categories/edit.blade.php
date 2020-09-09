@@ -5,9 +5,6 @@
 @section("content")
 @section('pageTitle') Edit Category @endsection
 
-
-
-
 <div class="row">
     <div class="col-12 col-md-6 col-lg-6">
         @if(session('status'))
@@ -28,6 +25,7 @@
                     <h4>Edit Category</h4>
                 </div>
                 <div class="card-body">
+
                     {{-- name --}}
                     <div class="form-group">
                         <label for="name">Category Name</label>

@@ -14,6 +14,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function ajaxSearch(Request $request)
+    {
+        $keyword = $request->get('q');
+
+        $categories = \App\Category::where("name", "LIKE", "%$keyword%")->get();
+
+        return $categories;
+    }
+
     public function index(Request $request)
     {
         $categories = \App\Category::paginate(10);

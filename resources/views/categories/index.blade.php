@@ -18,13 +18,15 @@
                         </a>
                     </li>
                     {{-- Filtering by name --}}
-                    <li class="nav-item ml-2">
+                    <li class="nav-item mr-2">
                         <form action="{{route('categories.index')}}">
-                            <div class="custom-control custom-control-inline">
+                            <div class="custom-control custom-control-inline input-group">
                                 <input value="{{ Request::get('name') }}" name="name" class="form-control" type="text"
-                                    placeholder="Insert name to filter..." />
+                                    placeholder="Insert name to filter...">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                </div>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
 
@@ -41,7 +43,7 @@
     </div>
 </div>
 
-{{-- Daftar category di sini --}}
+{{-- List all categories --}}
 <div class="row">
     <div class="col">
         @if(session('status'))
@@ -114,8 +116,9 @@
     </div>
 </div>
 
-
 @endsection
+{{-- end section content --}}
+
 @section('jslibraries')
 <!-- JS Libraies -->
 <script src="{{ asset('stisla/modules/jquery-ui/jquery-ui.min.js') }}"></script>

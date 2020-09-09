@@ -44,7 +44,7 @@
 </div>
 
 
-{{-- Daftar user di sini --}}
+{{-- List all users --}}
 <div class="row">
     <div class="col">
         @if(session('status'))
@@ -131,6 +131,8 @@
 
 
 @endsection
+{{-- end section content --}}
+
 @section('jslibraries')
 <!-- JS Libraies -->
 <script src="{{ asset('stisla/modules/jquery-ui/jquery-ui.min.js') }}"></script>

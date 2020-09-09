@@ -1,5 +1,4 @@
 @extends("layouts.global")
-
 @section("title") Create New Category @endsection
 
 @section("content")
@@ -24,6 +23,7 @@
                     <h4>Create New Category</h4>
                 </div>
                 <div class="card-body">
+
                     {{-- name --}}
                     <div class="form-group">
                         <label for="name">Category Name</label>

@@ -5,22 +5,19 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>@yield('title') &mdash; Shovel</title>
+
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('stisla/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stisla/modules/fontawesome/css/all.min.css') }}">
+
     <!-- CSS Libraries -->
-    <!-- Form -->
-    <link rel="stylesheet" href="{{ asset('stisla/modules/bootstrap-daterangepicker/daterangepicker.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('stisla/modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('stisla/modules/select2/dist/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('stisla/modules/jquery-selectric/selectric.css') }}">
-    <link rel="stylesheet" href="{{ asset('stisla/modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('stisla/modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+    @yield('csslibraries')
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('stisla/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('stisla/css/components.css') }}">
     <link rel="stylesheet" href="{{ asset('stisla/css/custom.css') }}">
+
     <!-- Start GA -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
     <script>
@@ -53,72 +50,7 @@
                             </a>
                         </li>
                     </ul>
-                    {{-- <div class="search-element">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search"
-                            data-width="250">
-                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-                        <div class="search-backdrop"></div>
-                        <div class="search-result">
-                            <div class="search-header">
-                                Histories
-                            </div>
-                            <div class="search-item">
-                                <a href="#">How to hack NASA using CSS</a>
-                                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-                            </div>
-                            <div class="search-item">
-                                <a href="#">Kodinger.com</a>
-                                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-                            </div>
-                            <div class="search-item">
-                                <a href="#">#Stisla</a>
-                                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-                            </div>
-                            <div class="search-header">
-                                Result
-                            </div>
-                            <div class="search-item">
-                                <a href="#">
-                                    <img class="mr-3 rounded" width="30" src="assets/img/products/product-3-50.png"
-                                        alt="product">
-                                    oPhone S9 Limited Edition
-                                </a>
-                            </div>
-                            <div class="search-item">
-                                <a href="#">
-                                    <img class="mr-3 rounded" width="30" src="assets/img/products/product-2-50.png"
-                                        alt="product">
-                                    Drone X2 New Gen-7
-                                </a>
-                            </div>
-                            <div class="search-item">
-                                <a href="#">
-                                    <img class="mr-3 rounded" width="30" src="assets/img/products/product-1-50.png"
-                                        alt="product">
-                                    Headphone Blitz
-                                </a>
-                            </div>
-                            <div class="search-header">
-                                Projects
-                            </div>
-                            <div class="search-item">
-                                <a href="#">
-                                    <div class="search-icon bg-danger text-white mr-3">
-                                        <i class="fas fa-code"></i>
-                                    </div>
-                                    Stisla Admin Template
-                                </a>
-                            </div>
-                            <div class="search-item">
-                                <a href="#">
-                                    <div class="search-icon bg-primary text-white mr-3">
-                                        <i class="fas fa-laptop"></i>
-                                    </div>
-                                    Create a new Homepage Design
-                                </a>
-                            </div>
-                        </div>
-                    </div> --}}
+
                 </form>
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown">
@@ -207,14 +139,37 @@
                                     </a>
                                 </li>
                                 <li class="{{ request()->routeIs('categories.trash') ? 'active' : '' }}">
-                                    <a class="nav-link" href="{{ route('categories.create') }}">
+                                    <a class="nav-link" href="{{ route('categories.trash') }}">
                                         All Trashed Categories
                                     </a>
                                 </li>
                             </ul>
                         </li>
 
-
+                        {{-- Management books --}}
+                        <li class="dropdown {{ request()->routeIs('books*') ? 'active' : '' }}">
+                            <a class="nav-link has-dropdown" href="#">
+                                <i class="fas fa-book"></i>
+                                <span>Manage Books</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="{{ request()->routeIs('books.index') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('books.index') }}">
+                                        List All Books
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('books.create') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('books.create') }}">
+                                        Create New Book
+                                    </a>
+                                </li>
+                                <li class="{{ request()->routeIs('books.trash') ? 'active' : '' }}">
+                                    <a class="nav-link" href="{{ route('books.trash') }}">
+                                        All Trashed Books
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                 </aside>
             </div>
 
@@ -224,7 +179,6 @@
                     <div class="section-header">
                         <h1>@yield("pageTitle")</h1>
                     </div>
-
                     <div class="section-body">
                         @yield("content")
                     </div>
@@ -252,8 +206,10 @@
 
     <!-- JS Libraies -->
     @yield('jslibraries')
+
     <!-- Page Specific JS File -->
     @yield('jspage')
+
     <!-- Template JS File -->
     <script src="{{ asset('stisla/js/scripts.js') }}"></script>
     <script src="{{ asset('stisla/js/custom.js') }}"></script>

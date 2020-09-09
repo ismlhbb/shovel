@@ -1,5 +1,4 @@
 @extends("layouts.global")
-
 @section("title") Create New User @endsection
 
 @section("content")
@@ -23,9 +22,8 @@
                 <div class="card-header">
                     <h4>Create New User</h4>
                 </div>
-
-
                 <div class="card-body">
+
                     {{-- name --}}
                     <div class="form-group">
                         <label for="name">Name</label>
