@@ -43,13 +43,6 @@ class UserController extends Controller
                     ->paginate(10);
             }
         }
-
-        //cek jika $status memiliki nilai maka kita gunakan untuk query model User berdasarkan status, jika tidak maka query model User tanpa status
-        if ($status) {
-            $users = \App\User::where('status', $status)->paginate(10);
-        } else {
-            $users = \App\User::paginate(10);
-        }
         return view('users.index', ['users' => $users]);
     }
 
@@ -158,12 +151,12 @@ class UserController extends Controller
 
         // cek jika terdapat request bertipe file dengan nama 'avatar',
         if ($request->file('avatar')) {
-            // Jika terdapat file upload 'avatar' maka kita cek lagi, apakah user yang 
+            // Jika terdapat file upload 'avatar' maka kita cek lagi, apakah user yang
             // akan diedit ini memiliki file avatar dan apakah file tersebut ada di server kita, jika ada maka kita hapus file tersebut.
             if ($user->avatar && file_exists(storage_path('app/public/' . $user->avatar))) {
                 Storage::delete('public/' . $user->avatar);
             }
-            // simpan file yang diupload ke folder "avatars" 
+            // simpan file yang diupload ke folder "avatars"
             $file = $request->file('avatar')->store('avatars', 'public');
 
             //set field 'avatar' user dengan path baru dari image yang diupload tadi
